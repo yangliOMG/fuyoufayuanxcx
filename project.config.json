@@ -1,0 +1,61 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.2.0",
+	"appid": "wx78e0ac34efe4137f",
+	"projectname": "fuyoufayuanxcx",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 2,
+			"list": [
+				{
+					"id": 0,
+					"name": "form",
+					"pathName": "pages/paryform/paryform",
+					"query": "id=4",
+					"scene": "1001"
+				},
+				{
+					"id": -1,
+					"name": "asd",
+					"pathName": "pages/lampdetail/lampdetail",
+					"query": ""
+				},
+				{
+					"id": 2,
+					"name": "detail",
+					"pathName": "pages/parydetail/parydetail",
+					"query": "id=2c9de08164fa12e10164fa1e60270009",
+					"scene": "1001"
+				}
+			]
+		}
+	}
+}

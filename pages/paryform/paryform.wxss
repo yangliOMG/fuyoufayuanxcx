@@ -1,0 +1,115 @@
+.notice-bar{background: #eee;color:#ff6201;box-shadow: 2px 2px 2px #bbb;height: 36px;overflow: hidden;line-height: 36px;}
+.notice-content {margin: auto 15px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.notice-wrap{overflow: hidden;}
+.notice-marquee{position: relative;right: 0;white-space: nowrap;display: inline-block;padding: 0 10px;font-size: 16px;}
+
+
+.temCard{padding:10px;display:flex;background:#fff;position:relative;}
+.temCard .img{flex:2 1}
+.temCard .img .ico{width:110px;height:110px;box-shadow:2px 2px 0 #aaa;border-radius:9px}
+.temCard .ti{flex:3 1;padding-left:5px}
+.temCard .ti .title{margin-bottom:3px;font-size:1.06rem}
+.temCard .absBlock{position:absolute;padding:5px;border:1px solid #bbb;background:#fff;z-index:99;top:50px;width:89%;left:3%}
+.temCard .absBlock .arrow_wrp{display:inline-block;position:absolute;top:-13px;right:40%}
+.temCard .absBlock .arrow_wrp .editor_arrow{display:inline-block;width:0;height:0;border-width:12px;border-style:dashed;position:absolute;border-color:transparent;border-top-width:0;border-bottom-color:#fff;border-bottom-style:solid}
+.temCard .absBlock .arrow_wrp .editor_arrow.out{top:0;border-bottom-color:#bbb}
+.temCard .absBlock .arrow_wrp .editor_arrow.in{top:2px}
+
+.listbody{background:#fff;position:relative;overflow:hidden;}
+.list{font-size:1.06rem;position: relative;padding-left: 15px;display: flex;vertical-align: middle;overflow: hidden;align-items: center;
+    border-bottom: 1PX solid #ddd;}
+.list:last-child{border-bottom: none}
+.list.inputlist{height: 44px;}
+.list.textlist{padding-bottom: 14px;align-items: flex-start;-webkit-box-align: start;box-sizing: border-box;}
+.list .listline{display: flex;align-self: stretch;flex: 1 1;align-items: center;margin-right: 15px;}
+.list .listline.multiple{padding: 12.5px 15px 12.5px 0;margin-right: 0px;}
+.list .listline .label{width: 85px;margin-right: 5px;text-align: left;white-space: nowrap;overflow: hidden;}
+.list .listline .control{flex: 1 1;}
+.list .listline .control input{width: 100%;}
+.list .listline .content{flex: 1 1;text-align: left;width: auto;overflow: hidden;text-overflow: ellipsis;
+    white-space: nowrap;padding-top: 7px;padding-bottom: 7px;}
+.list .listline .content .brief{display:flex;margin-top: 6px;width: auto;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.brief .btnBlock{flex:1 1;padding-right:2%}
+
+.list .listline .extra{flex-basis: 36%;text-align: right;width: auto;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;
+    padding-top: 7px;padding-bottom: 7px;}  
+.extra .stepper{width: 100%;position: relative;padding: 2px 0;display: inline-block;box-sizing: content-box;
+    height: 35px;line-height: 35px;font-size: 14px;vertical-align: middle;overflow: hidden;}    
+.extra .stepper .handlerwrap{position: absolute;width: 100%;font-size: 42px;}   
+.handlerwrap .handler{width: 32px;text-align: center;border: 1PX solid #ddd;border-radius: 5px;overflow: hidden;position: absolute;
+    display: inline-block;box-sizing: content-box;color: #a46735;height:20px;line-height:30px;padding-bottom:15px;}
+.handlerwrap .handler.le{left:0;}
+.handlerwrap .handler.rg{right:0;}
+.extra .stepper .inputwrap{display: inline-block;width: 100%;height: 37px;line-height: 37px;text-align: center;overflow: hidden;}   
+.extra .stepper .inputwrap input{display: inline-block;width: 55px;font-size:18px;
+    text-align: center;border: 0;vertical-align: middle;}   
+
+.list .listline .extra.extra60{flex-basis: 60%;color: #888;font-size:16px;}  
+.list .listline .arrow{display: block;margin-left: 8px;color: #bbb;}  
+
+.list .textarea-label{align-self: flex-start;text-align: left;min-height: 44px;line-height: 44px;margin-right: 5px;
+    white-space: nowrap;overflow: hidden;}
+.list .textarea-control{flex: 1 1;padding-top: 10px;padding-bottom: 9px;position: relative;min-height: 79px;}
+.list .textarea-control textarea{min-height: 67px;width: 94%;border: 1px solid #a46735;border-radius: 10px;padding: 5px;overflow: visible;
+    display: block;resize: none;word-break: break-all;word-wrap: break-word;z-index: 2;}
+
+.moremodule{position:absolute;right:0px;bottom:-22px;padding: 10px;color: #a46735;font-size: 15px;z-index: 3;}
+.maxlength{position:absolute;right:11px;bottom:11px;color: grey;font-size: 14px;z-index: 3;}
+.popoverMask{position: fixed;top: 0;right: 0;left: 0;bottom: 0;background-color: rgba(0, 0, 0, 0.4);height: 100%;z-index: 999;}
+.popover{position: absolute;z-index: 1999;left: 83.75px;top: 210px;}
+.popoverInner{background-color: #fff;border-radius: 3px;overflow: hidden;}
+.popoverArrow{position: absolute;width: 15px;height: 15px;border-radius: 1PX;background-color: #fff;transform: rotate(45deg);
+    z-index: -1;box-shadow: 0 0 2px rgba(0, 0, 0, 0.21);bottom: -3.5px;right: 8px;}
+.modeBtn{margin:0 5px 0 0;display:inline-block;border-radius:15px;font-size:.9rem;padding:2px 12px;color: white;background: #999;}
+.modeBtn:active{color:#fff;background:#ff6300}
+
+.timeBtn{padding:3px 4px;border-radius:8px;text-align:center;font-size:.8rem;line-height:1rem}
+
+
+.modalwrap{position: fixed;overflow: auto;top: 0;right: 0;bottom: 0;left: 0;height: 100%;z-index: 999;}
+
+.stick-footer{z-index:10;position:fixed;bottom:0;width:100%;height:50px;font-size:1.1rem;line-height:50px;text-align:center;display:flex}
+.stick-footer .total{flex:21 1;background:#fff;white-space:nowrap}
+.stick-footer .payBtn{flex:15 1;background:#d12c28;color:#fff;font-weight:700}
+.stick-footer .payBtn:active{background:#af2522}
+
+
+
+
+.slide-right-enter,
+.slide-right-appear {
+    transform: translate(100% , 0);
+}
+.slide-right-enter,
+.slide-right-appear,
+.slide-right-leave {
+          animation-duration: .2s;
+          animation-fill-mode: both;
+          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
+          animation-play-state: paused;
+}
+.slide-right-enter.slide-right-enter-active,
+.slide-right-appear.slide-right-appear-active {
+          animation-name: slideRightIn;
+          animation-play-state: running;
+}
+.slide-right-leave.slide-right-leave-active {
+          animation-name: slideRightOut;
+          animation-play-state: running;
+}
+@keyframes slideRightIn {
+  0% {
+            transform: translate(100% , 0);
+  }
+  100% {
+            transform: translate(0, 0);
+  }
+}
+@keyframes slideRightOut {
+  0% {
+            transform: translate(0, 0);
+  }
+  100% {
+            transform: translate(100% , 0);
+  }
+}

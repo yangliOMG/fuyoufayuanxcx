@@ -1,0 +1,8 @@
+.prayDetail{border-radius: 15px;overflow: hidden;}
+.prayDetail>image{display: block;}
+.prayText{background: #fff;padding: 10px;position: relative;}
+.prayText .art{font-size:1rem;padding-bottom: 10px;}
+.prayText .art .notpay{font-size: 20px;font-weight: bold;color: red}
+.prayText .inf{padding-bottom:10px;display: flex;}
+.prayText .inf .leftBlock{flex: 3 1}
+.prayText .inf .rightBlock{flex: 1 1}

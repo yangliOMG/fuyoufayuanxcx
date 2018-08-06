@@ -1,0 +1,37 @@
+<view class='whole'>
+    <wxs src="../paryform/tools.wxs" module="tools" />
+    <view class='wingblank'>
+        <view class='whitespace'></view>
+        <view class='prayDetail'>
+            <image style='width:100%' src='{{order.payStatus===2?"./fohou.jpg":"./fohou1.jpg"}}' alt="" mode='widthFix' />
+
+            <view class='prayText'>
+                <view class='c-black1 art'>
+                    <view wx:if='{{order.payStatus===1}}' class='notpay'>
+                        未支付 <span>{{tools.total(order.sum/100)}}元</span>
+                    </view>
+                    <view wx:elif='{{order.payStatus===3}}' class='notpay'>支付超时，请重新下单</view>
+                    <view wx:else>
+                        <view>{{order.unick}}在{{order.tname}} {{order.fname}}点亮了{{order.dengwei.length}}盏佛灯。</view>    
+                        <view hidden='{{!order.blessing}}'>祝愿：{{order.blessing}}</view>
+                    </view>
+                </view>
+                <view class='inf'>
+                    <view class='leftBlock c-erji'>
+                        <view class="{{showFlag?'':'text-overflow2'}}" bindtap='handleShow'>
+                            供灯位置：{{dengweiDetail}}</view>
+                        <view>供灯时长：{{during}}</view>
+                        <view>创建时间：{{createTime}}</view>
+                    </view>
+                    <view class='rightBlock'>
+                        <image style='height:100%;width:100%' src='./qrcode.jpg' data-src="./qrcode.jpg" mode='aspectFit' bindtap="handlePreviewImage" />
+                    </view>
+                </view>   
+            </view>  
+        </view>
+        <view class='whitespace'></view>
+        <Button type="warning" class="orangeBtn c-white active" bindtap='handleClickReback'
+            >{{order.payStatus!==2?order.payStatus!==3?'去支付':'重新下单':'长按图片关注公众号，获取更多信息'}}</Button>
+        <view class='whitespace'></view>
+    </view>
+</view>

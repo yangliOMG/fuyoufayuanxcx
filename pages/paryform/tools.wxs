@@ -1,0 +1,15 @@
+var total = function (d) {
+    return d.toFixed(2);
+}
+var computeLampNum = function (selednum=0,occupy=0,total) {
+    return [['l-gong','已供灯位',occupy],['l-red','已选灯位',selednum],['l-grey','可供灯位',total-occupy-selednum]]
+}
+var computeCeng = function (idx,len) {
+    var num = len - idx
+    return num>9? num:'0'+num
+}
+module.exports = {
+    total: total,
+    computeLampNum:computeLampNum,
+    computeCeng:computeCeng
+};

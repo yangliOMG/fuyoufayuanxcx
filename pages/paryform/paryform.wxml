@@ -1,0 +1,117 @@
+<view class='whole'>
+    <wxs src="./tools.wxs" module="tools" />
+    <view class='notice-bar'>
+        <view class='notice-content'>
+            <view class='notice-wrap'>
+                <view id='marquee' class='notice-marquee' style='right:{{right}}px'>
+                    <span class="mr-30" wx:for='{{paryMessage}}' wx:key='{{index}}'>
+                        <span class="c-black">{{item.prayman}}</span>供灯{{item.lednums}}盏
+                    </span>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class='wingblank'>
+        <view class='whitespace'></view>
+        <view class='temCard radius'>
+            <view class='img'>   
+                <image class='ico' src='{{obj.ico}}' alt="" mode='widthFix' />
+            </view>
+            <view class='ti' bindtap='handleInfo'>
+                <view class='title'>{{obj.tname}}{{obj.name}}</view>
+                <view class='info text-overflow4a'>{{obj.info}}</view>
+            </view>
+            <view class='info absBlock radius' hidden="{{!infoFlag}}"
+                bindtap='handleInfo'>
+                {{obj.info}}
+                <view class='arrow_wrp'>
+                    <view class='editor_arrow out'></view>
+                    <view class='editor_arrow in'></view>
+                </view>
+            </view>
+        </view>
+        <view class='whitespacesm'></view>
+        <view class='listbody radius'>
+            <view class='list inputlist'>   
+                <view class='listline'>   
+                    <view class='label'>祈愿人：</view>
+                    <view class='control'>
+                        <input id='prayman' name="input" placeholder="输入名字" value='{{prayman}}' bindinput='handleTextarea' />
+                    </view>
+                </view>
+            </view>
+            <view class='list textlist'>   
+                <view class='textarea-label'>祈愿文：</view>
+                <view class='textarea-control'>
+                    <textarea hidden='{{textareaFlag}}' id='blessing' auto-height placeholder="请输入" maxlength='30' 
+                                value='{{blessing}}' bindinput='handleTextarea' bindblur='handleBlurTextScan' />
+                    <view class="moremodule" bindtap='handleModule'>更多模板</view>
+                    <view class="maxlength">{{blessing.length}}/30</view>
+                </view>
+            </view>
+            <view class='list'>   
+                <view class='listline'>   
+                    <view class='content'>供灯数量</view>
+                    <view class='extra'>
+                        <view class='stepper'>
+                            <view class='handlerwrap'>
+                                <view class='handler le active' bindtap='handleNum' data-type='jian'>-</view>
+                                <view class='handler rg active' bindtap='handleNum' data-type='jia'>+</view>
+                            </view>
+                            <view class='inputwrap'>
+                                <input name="input" type="number" value='{{num}}' />
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class='list'>   
+                <view class='listline multiple'>   
+                    <view class='content'>
+                        供灯时长
+                        <view class='brief'>
+                            <view class='btnBlock' wx:for='{{btnList}}' wx:key='{{index}}'>
+                                <view class='timeBtn {{duration===item.type?"oran":"oran-o"}}'
+                                        bindtap='handleTimeBtnClick' data-type='{{item.type}}'>
+                                    <view>{{item.name}}</view>
+                                    <view>({{(price[item.type]/100)}}元)</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class='list inputlist active' bindtap='handlePosition'>   
+                <view class='listline'>   
+                    <view class='content'>供灯位置</view>
+                    <view class='extra extra60'>
+                        <text wx:for='{{position}}' wx:key='{{index}}'>{{item[1][1]}}{{(position.length===index+1?'':',')}}</text>
+                    </view>
+                    <view class='arrow'>></view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class='stick-footer'>  
+        <view class="total">供灯功德：<text class='c-red'>￥{{tools.total(num*price[duration]/100)}}</text></view>
+        <a class="payBtn" bindtap='handlePay'>确认祈福</a>
+    </view>
+
+    <view class="{{moduleFlag?'':'hidden'}}">
+        <view class="popoverMask" bindtap='handleModule'></view>
+        <view class="popover">
+            <view class="popoverArrow"></view>
+            <view class="popoverInner">
+                <view class="list" wx:for='{{modulecontent}}' wx:key='{{index}}'>
+                    <view class="listline">
+                        <view class="content">
+                            <span wx:for='{{modulecontent[index]}}' wx:key='{{index}}' data-type='{{item.type}}'
+                                 class="modeBtn" bindtap='handleTemplateType'>{{item.name}}</span>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+</view>

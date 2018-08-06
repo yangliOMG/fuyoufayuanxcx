@@ -1,0 +1,36 @@
+{
+  "pages":[
+    "pages/paryform/paryform",
+    "pages/index/index",
+    "pages/history/history",
+    "pages/center/center",
+    "pages/lampdetail/lampdetail",
+    "pages/parydetail/parydetail"
+  ],
+  "window":{
+    "background": "#eeeeee",
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "福佑法缘-供灯祈福",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#000",
+    "selectedColor": "#3399FF",
+    "backgroundColor": "#eee",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "供灯祈福"
+      },
+      {
+        "pagePath": "pages/history/history",
+        "text": "足迹"
+      },
+      {
+        "pagePath": "pages/center/center",
+        "text": "我的"
+      }
+    ]
+  }
+}

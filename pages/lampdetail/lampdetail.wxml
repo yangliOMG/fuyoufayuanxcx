@@ -1,0 +1,68 @@
+<view class='whole'>
+    <wxs src="../paryform/tools.wxs" module="tools" />
+    <view class='state-bar'>  
+        <view class='lie' wx:for='{{tools.computeLampNum(seledList.length,occupy,total)}}' wx:key='{{index}}'>
+            <span class='lampIcon {{item[0]}}'></span><view class='name'>{{item[1]}}<view>{{item[2]}}</view></view>
+        </view>
+    </view>
+    <view id='area' class='area'>
+        <swiper circular="true" current='{{curPage}}' class='swiper' bindchange='handleSwiper'>
+            <block wx:for="{{data}}" wx:for-index="idx" wx:for-item="darr" wx:key="{{idx}}">
+                <swiper-item class='swiper-item '>
+                    <scroll-view scroll-y='true' scroll-top="200" style='height:100%'>
+                        <view class='lampTab'>
+                            <view class='rowNum'>
+                                <view style='display:table-row' wx:for="{{darr}}" wx:key="{{index}}">
+                                    <view style='display:table-cell'>{{tools.computeCeng(index, darr.length)}}</view> 
+                                </view>
+                            </view>
+                            <view class='lampPannel'>
+                                <view style='display:table-row' wx:for="{{darr}}" wx:for-index="idx1" wx:for-item="arr" wx:key="{{idx1}}">
+                                    <view style='display:table-cell' wx:for="{{arr}}" wx:for-index="idx2" wx:for-item="v" wx:key="{{idx2}}">
+                                        <span wx:if='{{v.state===0}}' class='lampIcon l-grey mini' 
+                                            bindtap='handleLampClick' data-type='{{idx}},{{idx1}},{{idx2}}'></span>
+                                        <span wx:elif='{{v.state===1}}' class='lampIcon l-gong-mini mini'></span>
+                                        <span wx:else class='lampIcon l-red mini' bindtap='handleLampClick' data-type='{{idx}},{{idx1}},{{idx2}}'></span>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </scroll-view>
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+
+    <view class="fixed-bar">
+        <view class='field-bar'>
+            <view class='leftArrow c-grey1' bindtap='handleArrowClick' data-type='left'>
+                《
+            </view>
+            <view style="flex: 12 1" class="titleCard">
+                <view class="channel-box" style='-webkit-transform: translate(-{{curPage}}00%,0)'>
+                    <view class="channel" wx:for='{{direction}}' wx:key='{{index}}'
+                        >福佑灯塔 <span class='c-orange'>{{item}}</span></view>
+                </view>
+            </view>
+            <view class='rightArrow c-grey1' bindtap='handleArrowClick' data-type='right'>
+                》
+            </view>
+        </view>
+        <view wx:if='{{seledList.length===0}}' class='recom-bar'>  
+            <view class='ilshow' style="flex:4 1">推荐灯位</view>
+                <view class="radiobutton" wx:for='{{btnList}}' wx:key='{{index}}' 
+                    bindtap='handleRecBtnClick' data-type='{{item.type}}'>{{item.name}}</view>
+        </view>
+        <view wx:else class='pos-bar'>
+            <view class="nowrap">
+                <view class="nameplate bg-red1 radius" wx:for='{{seledList}}' wx:key='{{index}}'>{{item[1][0]}}
+                    <text class="timecircle" bindtap='handleSeatDelete' data-type='{{item[0]}}'>x</text>
+                </view>
+            </view>
+        </view>
+        <view class='seled-bar bg-red1' bindtap='handleSureSelectClick'>  
+            <Button class='bg-red1 c-white'
+                >{{seledList.length!==0?('已选'+seledList.length+'个 '):''}}确认祈福</Button>
+        </view>
+    </view>
+</view>

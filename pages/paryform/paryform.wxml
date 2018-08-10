@@ -97,6 +97,17 @@
         <a class="payBtn" bindtap='handlePay'>确认祈福</a>
     </view>
 
+    <view class="poplogin {{loginFlag?'':'hid'}}">
+        <view class="popblock">
+            <text class="">微信快速登录</text>
+            <view class="poptext">
+                <view>点击下方“微信登录”按钮进行登录，登录后您可以：</view>
+                <view>1.一键获取祈福人名字</view>
+            </view>
+            <button class="popbtn" open-type="getUserInfo" bindgetuserinfo="handleGetUserInfo">微信登录</button>
+        </view>
+    </view>
+
     <view class="{{moduleFlag?'':'hidden'}}">
         <view class="popoverMask" bindtap='handleModule'></view>
         <view class="popover">

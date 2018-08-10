@@ -20,6 +20,14 @@ function ajaxPromise(url,dataObj){
         })
     })
 }
+
+export function getLogin(code){
+    return ajaxPromise("/login/wxMiniLogin.do",{code})
+}
+export function saveUserInfo(encryptedData,iv){
+    return ajaxPromise("/login/getWxMiniUser.do",{encryptedData,iv})
+}
+
 export function getTowerAndPriceById(id){
     return ajaxPromise("/facility/info1.do",{id})
 }
@@ -52,8 +60,7 @@ export function getTopMes(fid){
 
 export function getWechatPay(res){
     return ajaxPromise("/wxpay/wechat_paytest.do",{
-        prayId:res.prayId , 
-        tid: res.tid,
+        prayId:res.prayId , type:"MINI"
     })
 }
 export function getWechatPayCallback(prayId){

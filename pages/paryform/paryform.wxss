@@ -53,6 +53,12 @@
 .list .textarea-control textarea{min-height: 67px;width: 94%;border: 1px solid #a46735;border-radius: 10px;padding: 5px;overflow: visible;
     display: block;resize: none;word-break: break-all;word-wrap: break-word;z-index: 2;}
 
+.poplogin{position: fixed;top: 0;right: 0;left: 0;bottom: 0;background-color:#fff;height: 100%;z-index: 999;transition: all 1s ease;}
+.poplogin.hid{top: 100%;}
+.poplogin .popblock{text-align: center;font-size: 20px;padding:10px;padding-top:90%;}
+.poplogin .poptext{text-align: center;font-size: 12px;color:#aaa}
+.poplogin .popbtn{margin-top: 10px;color: white;background: #ff6300}
+
 .moremodule{position:absolute;right:0px;bottom:-22px;padding: 10px;color: #a46735;font-size: 15px;z-index: 3;}
 .maxlength{position:absolute;right:11px;bottom:11px;color: grey;font-size: 14px;z-index: 3;}
 .popoverMask{position: fixed;top: 0;right: 0;left: 0;bottom: 0;background-color: rgba(0, 0, 0, 0.4);height: 100%;z-index: 999;}
@@ -72,44 +78,3 @@
 .stick-footer .total{flex:21 1;background:#fff;white-space:nowrap}
 .stick-footer .payBtn{flex:15 1;background:#d12c28;color:#fff;font-weight:700}
 .stick-footer .payBtn:active{background:#af2522}
-
-
-
-
-.slide-right-enter,
-.slide-right-appear {
-    transform: translate(100% , 0);
-}
-.slide-right-enter,
-.slide-right-appear,
-.slide-right-leave {
-          animation-duration: .2s;
-          animation-fill-mode: both;
-          animation-timing-function: cubic-bezier(0.55, 0, 0.55, 0.2);
-          animation-play-state: paused;
-}
-.slide-right-enter.slide-right-enter-active,
-.slide-right-appear.slide-right-appear-active {
-          animation-name: slideRightIn;
-          animation-play-state: running;
-}
-.slide-right-leave.slide-right-leave-active {
-          animation-name: slideRightOut;
-          animation-play-state: running;
-}
-@keyframes slideRightIn {
-  0% {
-            transform: translate(100% , 0);
-  }
-  100% {
-            transform: translate(0, 0);
-  }
-}
-@keyframes slideRightOut {
-  0% {
-            transform: translate(0, 0);
-  }
-  100% {
-            transform: translate(100% , 0);
-  }
-}

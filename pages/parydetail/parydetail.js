@@ -60,7 +60,7 @@ Page({
         const order = this.data.order
         if(order.payStatus===1){
             wx.showLoading({title: '加载中...',mask:true})
-            _server.getWechatPay({prayId:order.id,tid:order.tid}).then(res=>{
+            _server.getWechatPay({prayId:order.id}).then(res=>{
                 wx.hideLoading()
                 const prayid = res.prayId
                 wx.requestPayment({

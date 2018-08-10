@@ -7,6 +7,7 @@ Page({
     data: {
         paryMessage:[],
         right:0,
+        loginFlag:false,
         infoFlag:false,
         moduleFlag:false,
         textareaFlag:false,
@@ -26,16 +27,16 @@ Page({
         prayArticle:''
     },
     onLoad: function (options) {
-        if (app.data.user) {
+        if (app.data.user.nick) {
             this.setData({
-                prayman: app.data.user.nick,
+                prayman: app.data.user.nick
             })
             this.init(options)
         //由于login是网络请求，可能会在 Page.onLoad 之后才返回所以此处加入 callback 以防止这种情况
         }else if(wx.canIUse('button.open-type.getUserInfo')){ 
             app.userInfoReadyCallback = res => {
                 this.setData({
-                    prayman: res.nick,
+                    prayman: res.nick,loginFlag:false
                 })
                 setTimeout(() => {              
                     this.init(options)
@@ -44,12 +45,14 @@ Page({
                 //虽然已写了userInfoReadyCallback，按理说已经登录成功了才调用的后面的接口，但是初次调用接口仍然不成功，所以加入settimeout即可
                 // 推测和js线程有关系
             }
+            app.loginCallback = () => {
+                this.setData({loginFlag:true})
+            }
         }
     },
     init:function(options){
         this.compute()
         this.mount(options.id)
-        
     },
     compute:function(){
         const arr = _util.duringDictionary()
@@ -103,6 +106,18 @@ Page({
                 }, 30)
             }
         }).exec()
+    },
+    /**
+     * 微信登录事件
+     */
+    handleGetUserInfo: function(e) {
+        _server.saveUserInfo(e.detail.encryptedData,e.detail.iv).then(res=>{
+            this.setData({loginFlag:false})
+            app.data.user = { id: res.id, openid: res.openid, nick: res.nick }
+            if (app.userInfoReadyCallback) {
+                app.userInfoReadyCallback(app.data.user)
+            }
+        })
     },
     /**
      * 寺院信息窗口事件
@@ -241,9 +256,11 @@ Page({
                         'signType': 'MD5',
                         'paySign': res.paySign,
                         'success':function(res){
+                            console.log(res)
                             wx.showToast({title: "支付成功",mask:true,icon:'success',duration:2000})
                         },
                         'fail':function(res){
+                            console.log(res)
                              wx.showToast({title: "支付失败",mask:true,icon:'none',duration:2000})
                         },
                         'complete':function(){

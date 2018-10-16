@@ -12,7 +12,7 @@
                     </view>
                     <view wx:elif='{{order.payStatus===3}}' class='notpay'>支付超时，请重新下单</view>
                     <view wx:else>
-                        <view>{{order.unick}}在{{order.tname}} {{order.fname}}点亮了{{order.dengwei.length}}盏佛灯。</view>    
+                        <view>{{order.unick||""}}在{{order.tname}} {{order.fname}}点亮了{{order.dengwei.length}}盏佛灯。</view>    
                         <view hidden='{{!order.blessing}}'>祝愿：{{order.blessing}}</view>
                     </view>
                 </view>

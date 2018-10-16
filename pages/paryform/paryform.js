@@ -13,8 +13,8 @@ Page({
         textareaFlag:false,
         btnList:[],
         modulecontent:[
-            [{name:'健康',type:0},{name:'长寿',type:1},{name:'平安',type:2},{name:'富贵',type:3},],
-            [{name:'事业',type:4},{name:'姻缘',type:5},{name:'学业',type:6},]
+            [{name:'通用',type:0},{name:'平安',type:1},{name:'智慧',type:2},{name:'事业',type:3},],
+            [{name:'健康',type:4},{name:'财富',type:5},{name:'福寿',type:6},{name:'姻缘',type:7},]
         ],
         price:{1:980,30:1980,365:19900,7200:360000},
 
@@ -64,6 +64,10 @@ Page({
         this.setData({ position: app.data.position,num:app.data.position.length })
     },
     mount:function(id=4){
+        if(app.data.user.encryptedData){
+            _server.saveUserInfo(app.data.user.encryptedData,app.data.user.iv)//???
+        }
+
         _server.getTopMes(id).then(res=>{
             const paryMessage = res.data
             this.setData({paryMessage})
@@ -71,11 +75,11 @@ Page({
         })
         _server.getTowerAndPriceById(id).then(res=>{
             let price = {}
-            res.price.forEach(v=>price[v.duration]=v.price)
-            res.facility.ico = app.data.serverUrl + res.facility.ico
-            _server.getImageInfo(res.facility.ico)
+            res.data.price.forEach(v=>price[v.duration]=v.price)
+            res.data.facility.ico = app.data.serverUrl + res.data.facility.ico
+            _server.getImageInfo(res.data.facility.ico)
             this.setData({
-                obj: res.facility,
+                obj: res.data.facility,
                 price
             })
         }).catch(res=>console.log('info1',res))
@@ -167,7 +171,7 @@ Page({
      */
     handleBlurTextScan:function(){
         let blessing = this.data.blessing
-        if(blessing!==''){
+        if(blessing!==''&&false){
             _server.getTextScan(blessing).then(res=>{
                 if(res.suggestion==='block'){
                     const dic = {spam:'含垃圾信息',ad:'广告',politics:'涉政',terrorism:'暴恐',abuse:'辱骂',
@@ -229,7 +233,7 @@ Page({
         if(order.duration===""){
             return wx.showToast({title: '请选择时长',mask:true,icon:'none',duration:2000})
         }
-        if(order.blessing){
+        if(order.blessing&&false){
             _server.getTextScan(order.blessing).then(res=>{
                 if(res.suggestion==='pass'){
                     this.createOrder(order)

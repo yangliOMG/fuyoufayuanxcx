@@ -1,7 +1,7 @@
 //app.
 App({
     data: {
-        serverUrl: 'http://10.9.5.195:8080',    //http://10.9.5.136:8080       https://www.fuyoufayuan.com
+        serverUrl: 'https://www.fuyoufayuan.com',    //http://10.9.5.136:8080       https://www.fuyoufayuan.com
         position: [],
         user:{}
     },
@@ -38,8 +38,13 @@ App({
                     if (res.authSetting['scope.userInfo']) {
                         wx.getUserInfo({
                             withCredentials:true,
+                            lang:'zh_CN',
                             success: res => {
-                                _this.data.user = { nick: res.userInfo.nickName }
+                                _this.data.user = { 
+                                    nick: res.userInfo.nickName, 
+                                    encryptedData:res.encryptedData,        //???
+                                    iv:res.iv,                              //???
+                                }
                                 if (_this.userInfoReadyCallback) {
                                     _this.userInfoReadyCallback(_this.data.user)
                                 }

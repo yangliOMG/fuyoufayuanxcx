@@ -41,7 +41,7 @@ export function getOccupyById(id){
     return ajaxPromise("/facility/occupy.do",{id})
 }
 export function getRandomTemplateByType(type){
-    return ajaxPromise("/facility/random.do",{type})
+    return ajaxPromise("/template/random.do",{type})
 }
 
 export function getTextScan(content){

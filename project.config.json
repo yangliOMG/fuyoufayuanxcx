@@ -33,13 +33,13 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 0,
 			"list": [
 				{
 					"id": 0,
 					"name": "form",
 					"pathName": "pages/paryform/paryform",
-					"query": "id=4",
+					"query": "id=5",
 					"scene": "1001"
 				},
 				{

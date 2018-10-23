@@ -27,6 +27,9 @@ Page({
         prayArticle:''
     },
     onLoad: function (options) {
+        if(options.q){
+            options.id = _util.getQueryString(options.q,"id")
+        }
         if (app.data.user.nick) {
             this.setData({
                 prayman: app.data.user.nick

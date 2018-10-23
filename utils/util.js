@@ -1,4 +1,15 @@
 /**
+ * 获取url参数 
+ */
+export function getQueryString (url,name){
+    var reg = new RegExp('(^|&|/?)' + name + '=([^&|/?]*)(&|/?|$)', 'i')
+    var r = decodeURIComponent(url).substr(1).match(reg) 
+    if (r != null) {
+        return r[2]
+    }
+    return null;
+}
+/**
  * 数字转时间长度
  */
 export function duringDictionary(){
